@@ -22,6 +22,7 @@ class Database {
     // inicializa a conexão em cada model
     models
       .map(model => model.init(this.connection))
+      // faz as associações entre os models, expondo pro sequelize os relacionamentos
       .map(model => model.associate && model.associate(this.connection.models));
   }
 
